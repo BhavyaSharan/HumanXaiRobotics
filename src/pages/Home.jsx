@@ -8,7 +8,7 @@ import { loadFull } from "tsparticles";
 import "@fontsource/orbitron";
 
 /* ✅ Import Background Video */
-import heroVideo from "../assets/hero.mp4";
+import heroVideo from "../assets/Hero.mp4";
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
