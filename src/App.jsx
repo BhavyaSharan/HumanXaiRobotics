@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import Home from "./pages/Home";
-import Internship from "./pages/Internship";
+import Internship from "./pages/internship";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Internship" element={<Internship />} />
+        <Route path="/internship" element={<Internship />} />
       </Routes>
     </BrowserRouter>
   );
