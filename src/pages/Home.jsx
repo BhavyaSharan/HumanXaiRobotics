@@ -4,7 +4,7 @@ import { motion ,AnimatePresence } from "framer-motion";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import ContactForm from "../components/ContactForm";
-
+import { Link } from "react-router-dom";
 
 /* ✅ Tech Font */
 import "@fontsource/orbitron";
@@ -83,12 +83,9 @@ const Home = () => {
               <a href="#" className="hover:text-gray-300 transition">
                 AI labs
               </a>
-             <a
-  href="/internship"
-  className="hover:text-gray-300 transition"
->
+     <Link to="/internship" className="hover:text-gray-300 transition">
   Internships
-</a>
+</Link>
 
               
               <a
