@@ -10,7 +10,7 @@ function App() {
       <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/internship" element={<Internship />} />
+        <Route path="/Internship" element={<Internship />} />
       </Routes>
     </BrowserRouter>
   );
