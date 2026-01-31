@@ -3,6 +3,8 @@ import { Menu, X } from "lucide-react";
 import { motion ,AnimatePresence } from "framer-motion";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import ContactForm from "../components/ContactForm";
+
 
 /* ✅ Tech Font */
 import "@fontsource/orbitron";
@@ -79,11 +81,23 @@ const Home = () => {
                 Robots
               </a>
               <a href="#" className="hover:text-gray-300 transition">
-                AI Systems
+                AI labs
               </a>
-              <a href="#" className="hover:text-gray-300 transition">
-                Contact
-              </a>
+             <a
+  href="/internship"
+  className="hover:text-gray-300 transition"
+>
+  Internships
+</a>
+
+              
+              <a
+                  href="#contact"
+                  className="hover:text-gray-300 transition"
+                                >
+                         Contact
+                      </a>
+
             </div>
           </div>
 
@@ -134,11 +148,19 @@ const Home = () => {
         className="hover:text-gray-300 transition"
         onClick={() => setMenuOpen(false)}
       >
-        AI Systems
+        AI Labs
       </a>
 
       <a
-        href="#"
+        href="#internship"
+        className="hover:text-gray-300 transition"
+        onClick={() => setMenuOpen(false)}
+      >
+        Internships
+      </a>
+
+      <a
+        href="#contact"
         className="hover:text-gray-300 transition"
         onClick={() => setMenuOpen(false)}
       >
@@ -240,7 +262,7 @@ const Home = () => {
             transition={{ duration: 1 }}
             className="uppercase text-gray-300 tracking-[0.3em] mb-4"
           >
-            Next Generation Robotics
+            Next Generation AI and Robotics
           </motion.p>
 
           <motion.h2
@@ -326,6 +348,8 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      <ContactForm />
 
       {/* ✅ FOOTER */}
       <footer className="text-center py-10 text-gray-500 text-sm border-t border-gray-800">
