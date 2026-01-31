@@ -148,13 +148,12 @@ const Home = () => {
         AI Labs
       </a>
 
-      <a
-        href="#internship"
+       <Link to="/internship"
         className="hover:text-gray-300 transition"
         onClick={() => setMenuOpen(false)}
-      >
-        Internships
-      </a>
+        >
+  Internships
+</Link>
 
       <a
         href="#contact"
