@@ -7,6 +7,12 @@ import ContactForm from "../components/ContactForm";
 import { useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import TechnologySection from "../pages/TechnologySection";
+import UseCasesSection from "../pages/UseCasesSection"
+import Impact from "../pages/Impact"
+import Navbar from "../components/Navbar";
+import { useLocation } from "react-router-dom";
+
+
 
 /* ✅ Tech Font */
 import "@fontsource/orbitron";
@@ -15,6 +21,8 @@ import "@fontsource/orbitron";
 import heroVideo from "../assets/Hero.mp4";
 
 const Home = () => {
+  const location = useLocation();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [stickyNav, setStickyNav] = useState(false);
 
@@ -56,124 +64,25 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+  if (location.hash) {
+    const element = document.querySelector(location.hash);
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+
+      // ✅ Remove hash from URL after scrolling
+      setTimeout(() => {
+        window.history.replaceState(null, "", "/");
+      }, 500);
+    }
+  }
+}, [location]);
+
+
   return (
     <div className="bg-black text-white min-h-screen overflow-x-hidden font-[Orbitron]">
-      {/* ✅ NAVBAR */}
-      <nav
-        className={`z-50 w-[90%] md:w-[70%] transition-all duration-500
-        ${
-          stickyNav
-            ? "fixed top-0 left-1/2 -translate-x-1/2"
-            : "absolute top-6 left-1/2 -translate-x-1/2"
-        }
-        ${
-          showNav
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-10 pointer-events-none"
-        }`}
-      >
-        <div className="flex items-center justify-between bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-8 py-4 shadow-lg">
-          <h1 className="text-lg md:text-xl font-bold tracking-widest">
-            HUMANXAI
-          </h1>
-
-          {/* Desktop Links */}
-          <div className="hidden md:flex flex-1 justify-center">
-            <div className="flex justify-between w-[70%] uppercase text-sm tracking-wide">
-              <a href="#" className="hover:text-gray-300 transition">
-                Missions
-              </a>
-              <a href="#" className="hover:text-gray-300 transition">
-                Robots
-              </a>
-              <a href="#" className="hover:text-gray-300 transition">
-                AI Labs
-              </a>
-
-              <Link
-                to="/internship"
-                className="hover:text-gray-300 transition"
-              >
-                Internships
-              </Link>
-
-              <a href="#contact" className="hover:text-gray-300 transition">
-                Contact
-              </a>
-            </div>
-          </div>
-
-          {/* Mobile Hamburger */}
-          <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-
-        {/* ✅ Mobile Glass Menu Popup */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: -20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="absolute top-20 right-6 w-64
-              bg-white/10 backdrop-blur-xl border border-white/20
-              rounded-2xl shadow-2xl p-6 flex flex-col gap-4
-              uppercase text-sm z-50"
-            >
-              <a
-                href="#"
-                className="hover:text-gray-300"
-                onClick={() => setMenuOpen(false)}
-              >
-                Missions
-              </a>
-
-              <a
-                href="#"
-                className="hover:text-gray-300"
-                onClick={() => setMenuOpen(false)}
-              >
-                Robots
-              </a>
-
-              <a
-                href="#"
-                className="hover:text-gray-300"
-                onClick={() => setMenuOpen(false)}
-              >
-                AI Labs
-              </a>
-
-              <Link
-                to="/internship"
-                className="hover:text-gray-300"
-                onClick={() => setMenuOpen(false)}
-              >
-                Internships
-              </Link>
-
-              <a
-                href="#contact"
-                className="hover:text-gray-300"
-                onClick={() => setMenuOpen(false)}
-              >
-                Contact
-              </a>
-
-              <button
-                onClick={() => setMenuOpen(false)}
-                className="mt-3 py-2 rounded-xl border border-white/30
-                hover:bg-white hover:text-black transition"
-              >
-                Close
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
-
+     <Navbar />
       {/* ✅ HERO SECTION */}
       <section className="relative h-screen flex justify-center items-center text-center overflow-hidden">
         {/* ✅ AI Particle Background */}
@@ -242,12 +151,11 @@ const Home = () => {
       {/* ✅ TECHNOLOGY SECTION */}
       <TechnologySection />
 
+      {/* UseCase Section*/}
+      <UseCasesSection />
+
       {/* ✅ STATS SECTION */}
-      <section className="py-20 text-center">
-        <h2 className="text-3xl font-bold mb-10 uppercase tracking-widest">
-          HumanXai Impact
-        </h2>
-      </section>
+      <Impact/>
 
       {/* ✅ CONTACT */}
       <ContactForm />

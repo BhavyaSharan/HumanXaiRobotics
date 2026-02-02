@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
+import Navbar from "../components/Navbar";
 
 const Internship = () => {
   const [type, setType] = useState("offline");
@@ -12,7 +13,7 @@ const Internship = () => {
 
   return (
     <div className="bg-black text-white min-h-screen flex flex-col items-center px-6 py-20">
-
+<Navbar />
       {/* ✅ Heading */}
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
