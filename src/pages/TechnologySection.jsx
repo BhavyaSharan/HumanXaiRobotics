@@ -12,18 +12,18 @@ import robot3 from "../assets/Robo3.png";
 const robots = [
   {
     img: robot1,
-    title: "AI Humanoid Assistant",
-    desc: "Built for healthcare and human support with deep intelligence.",
+  title: "Alpha AI Era Robot",
+desc: "The first generation of intelligent machines—powerful but still evolving.",
   },
   {
     img: robot2,
-    title: "Industrial Automation Bot",
-    desc: "Robotics designed for factories, warehouses and smart production.",
+    title: "Beta AI Era Robot",
+desc: "Second-generation intelligence built for real-world deployment and trust.",
   },
   {
     img: robot3,
-    title: "Autonomous Mission Unit",
-    desc: "Next-gen humanoids capable of fully independent decision-making.",
+    title: "Quantum AI Humanoid Entity",
+desc: "Next-generation intelligence powered by quantum computing beyond human limits.",
   },
 ];
 
