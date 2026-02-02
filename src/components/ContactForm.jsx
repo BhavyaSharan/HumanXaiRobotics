@@ -100,6 +100,24 @@ const ContactForm = () => {
             />
           </div>
 
+          {/*Organization*/}
+          <div>
+            <label className="block text-sm text-gray-300 mb-2">
+              Organization
+            </label>
+            <input
+              type="text"
+              name="organization name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Enter your Organization name"
+              className="w-full px-4 py-3 rounded-xl bg-black/40 
+              border border-gray-600 text-white outline-none 
+              focus:border-white transition"
+            />
+          </div>
+
           {/* Button */}
           <button
             type="submit"
